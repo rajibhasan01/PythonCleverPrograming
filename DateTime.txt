@@ -1,0 +1,48 @@
+import datetime
+import pytz
+
+today = datetime.date.today()
+print(today)
+
+birthday = datetime.date(1996,1,12)
+print(birthday)
+
+days_since_birth = (today - birthday).days
+
+print(days_since_birth)
+
+tdelta = datetime.timedelta(days = 320)
+print(today + tdelta)
+
+print(today.day)
+print(today.weekday())
+
+print(datetime.time(7, 2, 20, 15))
+#datetime.date(Y, M, D)
+#datetime.time(h, m, s, ms)
+#datetime.datetime(Y, M, D, h, m, s, ms)
+
+hour_delta = datetime.timedelta(hours = 6)
+print(datetime.datetime.now()+hour_delta)
+
+
+print(datetime.datetime.now(tz = pytz.UTC))
+datetime_today = datetime.datetime.now(tz = pytz.UTC)
+datetime_pacific = datetime_today.astimezone(pytz.cimezone('Asia/Dhaka'))
+print(datetime_pacific)
+
+# for tz in pytz.all_timezones:
+#     print(tz)
+
+#string formating with dates
+#2020-03-09 -> march 9, 2020
+
+print(datetime_pacific.strftime('%B %d, %Y'))
+
+#March 09, 2019 -> datetime(2019, 3, 9)
+#strptime (p = parsing)
+
+datetime_thing = datetime.datetime.strptime("March 09, 2019", '%B %d, %Y')
+print(repr(datetime_thing))
+
+ 

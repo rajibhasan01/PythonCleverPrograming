@@ -1,0 +1,13 @@
+person1 = ("Asha",22,"Pizza")
+name,age,favfood = person1
+print(name)
+print(age)
+print(favfood)
+
+person2 = ("Rajib",24,"Pasta")
+people = [person1,person2]
+
+for name, age, favfood in people:
+    print(name)
+    print(age)
+    print(favfood)

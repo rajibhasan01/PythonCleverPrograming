@@ -1,0 +1,11 @@
+person = ['rajib','asha','noyon']
+
+movies_and_ratings = {"Intereseller": 9, "Dark Knight":8, "50 Shades":3, "50 Shades Darker": 2}
+
+l = []
+for movie in movies_and_ratings:
+    if movies_and_ratings[movie] > 6:
+        l.append(movie)
+print(l)
+
+print([movie for movie in movies_and_ratings if movies_and_ratings[movie] > 6])

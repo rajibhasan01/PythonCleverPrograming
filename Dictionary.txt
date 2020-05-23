@@ -1,0 +1,34 @@
+groceries = {'banana': 5, 'oranges': 3}
+print(groceries.get("banana"))
+print(list(groceries))
+
+contacts = {
+    'Rajib': {"phone":"01754-063712","email":"Rajib@gmail.com"},
+    'Noyon': "01717-236793"
+}
+
+a=contacts.get('Rajib', {}).get('email')
+print(a)
+
+sentence = "I like the name rajib beacuse the name is the best"
+a = input()
+
+word_count ={
+    "I":1,
+    "like":1,
+    "the":3,
+    "a":a
+}
+
+word_count["rajib"] = 5
+
+
+
+
+print(list(word_count.items()))
+
+word_count.popitem()
+print(list(word_count))
+
+
+

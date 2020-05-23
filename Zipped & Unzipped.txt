@@ -1,0 +1,43 @@
+list1 = [1,2,3,4,5,6]
+list2 = ['A','B','C','D','E','F']
+list3 = ['Rajib','Asha','Raisha']
+
+zipped = list(zip(list1,list2))
+print(zipped)
+#[(1, 'A'), (2, 'B'), (3, 'C'), (4, 'D'), (5, 'E'), (6, 'F')]
+
+zipped2 = list(zip(list1,list2,list3))
+print(zipped2)
+#[(1, 'A', 'Rajib'), (2, 'B', 'Asha'), (3, 'C', 'Raisha')]
+
+unziped = list(zip(*zipped2))
+print(unziped)
+#[(1, 2, 3), ('A', 'B', 'C'), ('Rajib', 'Asha', 'Raisha')]
+
+list4 = ['A','B','C','D','E']
+
+for (l1,l2) in zip(list1,list4):
+    print(l1)
+    print(l2)
+
+# 1
+# A
+# 2
+# B
+# 3
+# C
+# 4
+# D
+# 5
+# E
+
+items = ['Apple','Banana','Orange']
+counts = [3, 6, 4]
+prices = [0.99, 0.25, 0.50]
+sentences = []
+for (item, count, price) in zip(items,counts,prices):
+    item, count, price = str(item),str(count),str(price)
+    sentence = 'I bought '+ count + ' ' + item + 's at ' + price + ' cents each.'
+
+    sentences.append(sentence)
+print(sentences)

@@ -1,0 +1,6 @@
+import time
+import datetime
+
+while True:
+    unix = int(time.time())
+    time1 = str(datetime.datetime.fromtimestamp(unix).strftime("%I:%M:%S:%p"))

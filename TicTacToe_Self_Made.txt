@@ -1,0 +1,160 @@
+board = ["_","_","_",
+         "_","_","_",
+         "_","_","_"]
+
+winner = None
+game_still_going = True
+current_player = "X"
+
+
+def display():
+    print(board[0] + " | " + board[1] + " | " + board[2])
+    print(board[3] + " | " + board[4] + " | " + board[5])
+    print(board[6] + " | " + board[7] + " | " + board[8])
+
+    return
+
+def flipped_player():
+    global current_player
+    if current_player == "X":
+        current_player = "O"
+    elif current_player == "O":
+        current_player = "X"
+    return
+
+def check_for_tie():
+    global game_still_going
+
+    if "_" not in board:
+        game_still_going = False
+    return
+
+def check_diagonal():
+    diagonal_1 = board[0] == board[4] == board[8] != "_"
+    diagonal_2 = board[2] == board[4] == board[6] != "_"
+
+    if diagonal_1:
+        return board[0]
+    elif diagonal_2:
+        return board[2]
+
+    return
+
+def check_column():
+    column_1 = board[0] == board[3] == board[6] != "_"
+    column_2 = board[1] == board[4] == board[7] != "_"
+    column_3 = board[2] == board[5] == board[8] != "_"
+
+    if column_1:
+        return board[0]
+    elif column_2:
+        return board[1]
+    elif column_3:
+        return board[2]
+
+    return
+
+def check_row():
+
+    row_1 = board[0] == board[1] == board[2] != "_"
+    row_2 = board[3] == board[4] == board[5] != "_"
+    row_3 = board[6] == board[7] == board[8] != "_"
+
+    if row_1:
+        return board[0]
+    elif row_2:
+        return board[3]
+    elif row_3:
+        return board[6]
+
+    return
+
+def check_for_winner():
+    global winner
+    global game_still_going
+
+    row_winner = check_row()
+    column_winner = check_column()
+    diagonal_winner = check_diagonal()
+
+    if row_winner or column_winner or diagonal_winner:
+        game_still_going = False
+
+    if row_winner:
+        winner = row_winner
+    elif column_winner:
+        winner = column_winner
+    elif diagonal_winner:
+        winner = diagonal_winner
+
+    return
+
+def check_if_game_over():
+    check_for_winner()
+    check_for_tie()
+    return
+
+def handle_turn(player):
+    print(player + "'s turn.")
+
+    position = input("Choose a position from 1-9: ")
+
+    valid = False
+
+    while not valid:
+        while position not in ["1","2","3","4","5","6","7","8","9"]:
+            position = input("Please choose from 1-9: ")
+
+        position = int(position) - 1
+
+        if board[position] == "_":
+            valid = True
+        else:
+            print("You can't go there. Go again.")
+
+    board[position] = player
+    display()
+    return
+
+def play_game():
+    display()
+
+    while game_still_going:
+        handle_turn(current_player)
+
+        check_if_game_over()
+
+        flipped_player()
+
+    if winner == "X" or winner == "O":
+        print(winner + " win.")
+    elif winner == None:
+        print("Tie.")
+    return
+
+def main():
+    if __name__ == "__main__":
+        proceed = True
+        while proceed:
+            global board
+            global winner
+            global game_still_going
+            global current_player
+
+            board = ["_", "_", "_",
+                     "_", "_", "_",
+                     "_", "_", "_"]
+
+            winner = None
+            game_still_going = True
+            current_player = "X"
+
+            play_game()
+            continue_play = input("If want to play more press Y: ")
+            if continue_play == "Y" or continue_play == "y":
+                proceed = True
+            else:
+                proceed = False
+    return
+
+main()

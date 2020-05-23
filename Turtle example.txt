@@ -1,0 +1,38 @@
+from turtle import *
+import turtle
+rajib_turtle = turtle.Turtle()
+
+
+def square():
+    rajib_turtle.forward(100)
+    rajib_turtle.right(90)
+    rajib_turtle.forward(100)
+    rajib_turtle.right(90)
+    rajib_turtle.forward(100)
+    rajib_turtle.right(90)
+    rajib_turtle.forward(100)
+
+square()
+rajib_turtle.forward(50)
+square()
+
+done()
+
+##################################
+
+from turtle import *
+import turtle
+rajib_turtle = turtle.Turtle()
+
+
+def square():
+    rajib_turtle.forward(100)
+    for i in range(3):
+        rajib_turtle.right(90)
+        rajib_turtle.forward(100)
+
+square()
+rajib_turtle.forward(50)
+square()
+
+done()
